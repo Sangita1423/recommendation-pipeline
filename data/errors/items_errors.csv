@@ -1,0 +1,7 @@
+item_id,title,genres,release_year,duration_min,_source_file,_ingested_at,error_reason
+I00085,The Crimson Echo (84),Action|Horror|Fantasy,1991,109,items.csv,2026-11-14T14:28:20+00:00,duplicate_item_id
+I00394,The Golden Empire (393),Sci-Fi,2014,85,items.csv,2026-11-14T14:28:20+00:00,duplicate_item_id
+I00486,The Silent Storm (485),Drama|Sci-Fi,1979,93,items.csv,2026-11-14T14:28:20+00:00,duplicate_item_id
+I00177,The Velvet Empire (176),Fantasy,1975,81,items.csv,2026-11-14T14:28:20+00:00,duplicate_item_id
+I00178,The Silent Mirror (177),Crime,2016,91,items.csv,2026-11-14T14:28:20+00:00,duplicate_item_id
+I00186,The Hidden River (185),Comedy|Drama|Documentary,1992,146,items.csv,2026-11-14T14:28:20+00:00,duplicate_item_id

@@ -1,0 +1,16 @@
+{
+  "cutoff_timestamp": "2026-05-21 09:03:49.200000",
+  "train_rows": 44891,
+  "test_rows": 11223,
+  "train_period": [
+    "2023-01-08 03:36:07",
+    "2026-05-21 08:38:30"
+  ],
+  "test_period": [
+    "2026-05-21 09:41:48",
+    "2026-11-02 20:50:26"
+  ],
+  "test_users": 957,
+  "test_users_cold_start": 0,
+  "test_items_cold_start": 0
+}

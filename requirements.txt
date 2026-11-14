@@ -1,0 +1,15 @@
+# core (required to run the pipeline end-to-end)
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+PyYAML>=6.0
+pytest>=7.0
+
+# experiment tracking (recommended; a local file tracker is used if absent)
+mlflow>=2.10
+
+# optional
+pyarrow>=14.0            # set storage.format: parquet in configs/config.yaml
+# prefect>=2.16          # to run dags/prefect_flow.py
+# apache-airflow==2.9.3  # install separately with the official constraints file (see dags/recommendation_dag.py)

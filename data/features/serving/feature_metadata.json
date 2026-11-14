@@ -1,0 +1,221 @@
+{
+  "feature_version": "v1",
+  "mode": "serve",
+  "as_of": "2026-11-02 20:50:26",
+  "computed_at": "2026-11-14T19:58:25",
+  "row_counts": {
+    "user_features": 1000,
+    "item_features": 600,
+    "user_genre_features": 11648
+  },
+  "features": [
+    {
+      "name": "user_rating_count",
+      "entity": "user",
+      "dtype": "int",
+      "description": "Number of ratings the user has given",
+      "logic": "count(rating) by user_id",
+      "source": "interactions"
+    },
+    {
+      "name": "user_avg_rating",
+      "entity": "user",
+      "dtype": "float",
+      "description": "User's mean rating (rating generosity)",
+      "logic": "mean(rating) by user_id",
+      "source": "interactions"
+    },
+    {
+      "name": "user_rating_std",
+      "entity": "user",
+      "dtype": "float",
+      "description": "Spread of the user's ratings",
+      "logic": "std(rating) by user_id, 0 if single rating",
+      "source": "interactions"
+    },
+    {
+      "name": "user_ratings_last_30d",
+      "entity": "user",
+      "dtype": "int",
+      "description": "Ratings in the 30 days before as_of",
+      "logic": "count(rating) where timestamp > as_of - 30d",
+      "source": "interactions"
+    },
+    {
+      "name": "user_days_since_last_interaction",
+      "entity": "user",
+      "dtype": "int",
+      "description": "Recency of the user's activity",
+      "logic": "as_of - max(timestamp), in days",
+      "source": "interactions"
+    },
+    {
+      "name": "user_active_span_days",
+      "entity": "user",
+      "dtype": "int",
+      "description": "Days between first and last interaction",
+      "logic": "max(timestamp) - min(timestamp) + 1",
+      "source": "interactions"
+    },
+    {
+      "name": "user_preferred_genre",
+      "entity": "user",
+      "dtype": "category",
+      "description": "Genre the user rates most often",
+      "logic": "argmax(count) over exploded item genres",
+      "source": "interactions + items"
+    },
+    {
+      "name": "user_genre_diversity",
+      "entity": "user",
+      "dtype": "float",
+      "description": "Distinct genres rated / total genres (breadth of taste)",
+      "logic": "nunique(genre) / n_genres",
+      "source": "interactions + items"
+    },
+    {
+      "name": "user_mainstreamness",
+      "entity": "user",
+      "dtype": "float",
+      "description": "Mean popularity percentile of items the user rated",
+      "logic": "mean(item_popularity_percentile) over user's items",
+      "source": "interactions"
+    },
+    {
+      "name": "user_age",
+      "entity": "user",
+      "dtype": "int",
+      "description": "Age (median-imputed when missing/invalid)",
+      "logic": "users.age",
+      "source": "users"
+    },
+    {
+      "name": "user_gender",
+      "entity": "user",
+      "dtype": "category",
+      "description": "Standardised gender (M/F/Other/Unknown)",
+      "logic": "users.gender",
+      "source": "users"
+    },
+    {
+      "name": "user_tenure_days",
+      "entity": "user",
+      "dtype": "int",
+      "description": "Days since sign-up",
+      "logic": "as_of - signup_date",
+      "source": "users"
+    },
+    {
+      "name": "item_rating_count",
+      "entity": "item",
+      "dtype": "int",
+      "description": "Number of ratings (raw popularity)",
+      "logic": "count(rating) by item_id",
+      "source": "interactions"
+    },
+    {
+      "name": "item_unique_users",
+      "entity": "item",
+      "dtype": "int",
+      "description": "Distinct users who rated the item",
+      "logic": "nunique(user_id) by item_id",
+      "source": "interactions"
+    },
+    {
+      "name": "item_avg_rating",
+      "entity": "item",
+      "dtype": "float",
+      "description": "Mean rating of the item",
+      "logic": "mean(rating) by item_id",
+      "source": "interactions"
+    },
+    {
+      "name": "item_bayesian_avg_rating",
+      "entity": "item",
+      "dtype": "float",
+      "description": "Mean rating shrunk to global mean (robust for few ratings)",
+      "logic": "(C*m + sum(r)) / (C + n), C = median item count, m = global mean",
+      "source": "interactions"
+    },
+    {
+      "name": "item_popularity_percentile",
+      "entity": "item",
+      "dtype": "float",
+      "description": "Popularity percentile (1 = most popular)",
+      "logic": "rank_pct(item_rating_count)",
+      "source": "interactions"
+    },
+    {
+      "name": "item_ratings_last_30d",
+      "entity": "item",
+      "dtype": "int",
+      "description": "Ratings in the 30 days before as_of (trending)",
+      "logic": "count(rating) where timestamp > as_of - 30d",
+      "source": "interactions"
+    },
+    {
+      "name": "item_days_since_last_interaction",
+      "entity": "item",
+      "dtype": "int",
+      "description": "Recency of item activity",
+      "logic": "as_of - max(timestamp), in days",
+      "source": "interactions"
+    },
+    {
+      "name": "item_primary_genre",
+      "entity": "item",
+      "dtype": "category",
+      "description": "First listed genre",
+      "logic": "items.genres.split('|')[0]",
+      "source": "items"
+    },
+    {
+      "name": "item_genre_count",
+      "entity": "item",
+      "dtype": "int",
+      "description": "Number of genres tagged",
+      "logic": "len(genres)",
+      "source": "items"
+    },
+    {
+      "name": "item_age_years",
+      "entity": "item",
+      "dtype": "int",
+      "description": "Years since release",
+      "logic": "year(as_of) - release_year",
+      "source": "items"
+    },
+    {
+      "name": "item_duration_min",
+      "entity": "item",
+      "dtype": "int",
+      "description": "Runtime in minutes",
+      "logic": "items.duration_min",
+      "source": "items"
+    },
+    {
+      "name": "ug_share",
+      "entity": "user_genre",
+      "dtype": "float",
+      "description": "Share of the user's ratings that fall in the genre",
+      "logic": "count(user, genre) / count(user)",
+      "source": "interactions + items"
+    },
+    {
+      "name": "ug_avg_rating",
+      "entity": "user_genre",
+      "dtype": "float",
+      "description": "User's mean rating within the genre",
+      "logic": "mean(rating) by (user_id, genre)",
+      "source": "interactions + items"
+    },
+    {
+      "name": "ug_affinity",
+      "entity": "user_genre",
+      "dtype": "float",
+      "description": "Combined preference score used by the hybrid model",
+      "logic": "ug_share * (ug_avg_rating - user_avg_rating + 1)",
+      "source": "interactions + items"
+    }
+  ]
+}

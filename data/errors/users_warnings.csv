@@ -1,0 +1,148 @@
+user_id,age,gender,country,signup_date,_source_file,_ingested_at,warning_reason
+U00002,230,M,Canada,2025-01-27,users.csv,2026-11-14T14:28:20+00:00,age_out_of_range
+U00007,61,female ,UK,2023-03-26,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00014,32,F,,2025-01-15,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00023,62,other,Brazil,2023-06-28,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00031,42,F,,2024-03-16,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00032,,F,Brazil,2023-08-11,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00054,67, male,Canada,2024-04-01,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00059,,F,USA,2024-12-28,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00065,56,M,,2024-02-07,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00070,16, male,India,2024-04-04,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00078,24, male,Brazil,2023-08-11,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00085,26,other,Brazil,2024-09-08,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00086,,F,Japan,2024-11-16,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00105,32, male,India,2025-02-19,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00110,18, male,UK,2024-11-21,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00113,26,F,,2024-06-27,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00115,26,other,UK,2024-05-09,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00121,16,female ,Japan,2024-03-06,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00125,61, male,Canada,2025-04-17,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00136,19,M,,2023-10-25,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00138,35,M,,2023-01-31,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00141,63, male,Japan,2025-08-20,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00142,34,female ,Canada,2023-07-30,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00150,62,female ,,2023-02-27,users.csv,2026-11-14T14:28:20+00:00,missing_country;nonstandard_gender
+U00156,47, male,,2024-10-10,users.csv,2026-11-14T14:28:20+00:00,missing_country;nonstandard_gender
+U00161,47, male,Germany,2025-09-02,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00163,61,female ,Brazil,2024-02-05,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00164,44, male,USA,2024-02-02,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00176,34,F,,2024-03-28,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00177,33,M,,2024-12-03,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00193,25,female ,Japan,2024-08-17,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00196,,M,Germany,2023-03-27,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00198,69,female ,India,2023-04-26,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00203,69,female ,UK,2024-04-29,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00207,43,female ,Australia,2025-01-18,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00213,,F,Germany,2025-02-11,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00219,59,F,Brazil,31/02/2024,users.csv,2026-11-14T14:28:20+00:00,invalid_signup_date
+U00221,51, male,India,2023-05-05,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00222,unknown,M,Brazil,2024-03-22,users.csv,2026-11-14T14:28:20+00:00,age_not_numeric
+U00226,68,F,,2023-10-27,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00234,56,F,,2025-01-12,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00242,57, male,UK,2024-07-25,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00253,19, male,Australia,2023-07-04,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00263,230, male,UK,2023-10-21,users.csv,2026-11-14T14:28:20+00:00,age_out_of_range;nonstandard_gender
+U00268,36,other,Australia,2023-12-06,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00273,66, male,Australia,2023-05-29,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00276,54, male,Canada,2024-04-17,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00283,37, male,USA,2024-10-19,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00290,49,female ,UK,2024-04-08,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00292,62,F,Australia,31/02/2024,users.csv,2026-11-14T14:28:20+00:00,invalid_signup_date
+U00303,53,female ,USA,2023-01-10,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00306,52,female ,Canada,2023-05-18,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00312,34,female ,Canada,2024-10-20,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00322,30, male,Germany,2023-04-16,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00329,52,M,,2023-05-19,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00335,44,other,Australia,2024-03-26,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00337,50, male,Canada,2025-07-31,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00341,44, male,India,2024-09-13,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00357,34,female ,Australia,2023-05-29,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00360,35, male,Australia,2025-01-02,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00362,,M,Canada,2025-05-22,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00366,16,female ,Canada,2024-05-22,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00368,40, male,USA,2023-11-06,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00369,,M,Australia,2023-01-22,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00401,62,M,,2025-09-04,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00402,29, male,India,2025-01-31,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00415,47, male,Germany,2023-01-18,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00422,142, male,Australia,2024-11-10,users.csv,2026-11-14T14:28:20+00:00,age_out_of_range;nonstandard_gender
+U00426,59, male,Canada,2023-07-15,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00433,25, male,Australia,2025-03-19,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00439,33,female ,UK,2023-03-21,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00443,66, male,Japan,2023-05-10,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00446,17,F,,2024-10-10,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00448,67,female ,USA,2025-07-24,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00471,64,F,Germany,31/02/2024,users.csv,2026-11-14T14:28:20+00:00,invalid_signup_date
+U00473,40, male,Germany,2024-02-28,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00480,38, male,Brazil,2023-04-17,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00490,43, male,Germany,2024-08-16,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00518,18,female ,India,2023-03-07,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00519,230, male,Japan,2024-04-10,users.csv,2026-11-14T14:28:20+00:00,age_out_of_range;nonstandard_gender
+U00520,40,M,,2024-08-04,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00521,unknown,M,Australia,2023-12-17,users.csv,2026-11-14T14:28:20+00:00,age_not_numeric
+U00524,-3,F,Australia,2025-03-18,users.csv,2026-11-14T14:28:20+00:00,age_out_of_range
+U00527,33, male,India,2025-06-22,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00534,26,female ,Canada,2023-10-06,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00536,17, male,Brazil,2023-05-31,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00539,54,female ,Canada,2024-06-12,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00542,29,M,,2023-02-24,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00555,40, male,Japan,2025-08-21,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00566,40, male,UK,2023-08-20,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00571,20, male,Japan,2025-07-17,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00572,,F,India,2024-02-12,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00588,20,female ,UK,2023-04-08,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00589,62,M,Brazil,31/02/2024,users.csv,2026-11-14T14:28:20+00:00,invalid_signup_date
+U00605,22, male,USA,2025-03-19,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00622,16,F,,2024-04-12,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00627,-3,M,India,2023-11-28,users.csv,2026-11-14T14:28:20+00:00,age_out_of_range
+U00630,22, male,UK,2023-12-25,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00637,24, male,Canada,2023-08-19,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00642,18, male,India,2025-06-16,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00643,40, male,,2025-04-16,users.csv,2026-11-14T14:28:20+00:00,missing_country;nonstandard_gender
+U00649,68,female ,UK,2025-07-29,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00655,24,F,India,31/02/2024,users.csv,2026-11-14T14:28:20+00:00,invalid_signup_date
+U00660,29, male,Germany,2023-10-10,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00663,,F,USA,2023-02-04,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00676,,F,UK,2024-12-11,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00682,16,female ,USA,2023-05-15,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00689,66,female ,India,2024-03-11,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00690,,M,Japan,2025-02-05,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00703,52, male,Brazil,2023-06-14,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00709,29,female ,Canada,2024-04-10,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00712,41, male,Canada,2024-05-26,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00717,50, male,Australia,2024-05-21,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00720,43,female ,USA,2024-08-10,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00724,,F,India,2023-04-28,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00743,40, male,Germany,2024-09-13,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00745,27,F,,2025-02-17,users.csv,2026-11-14T14:28:20+00:00,missing_country
+U00752,63, male,USA,2023-05-25,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00757,,M,Brazil,2024-12-23,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00759,46,female ,Germany,2023-05-06,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00765,unknown,M,Germany,2023-12-20,users.csv,2026-11-14T14:28:20+00:00,age_not_numeric
+U00772,36,female ,Canada,2025-08-23,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00783,17, male,UK,2023-05-01,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00784,67, male,Canada,2023-04-30,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00787,26, male,Brazil,2023-02-01,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00797,68,female ,Brazil,2025-08-05,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00802,41,female ,Brazil,2023-10-23,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00855,21,female ,India,2023-10-09,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00856,62,other,Japan,2025-04-11,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00866,,female ,Brazil,2024-11-14,users.csv,2026-11-14T14:28:20+00:00,missing_age;nonstandard_gender
+U00894,, male,India,2025-08-17,users.csv,2026-11-14T14:28:20+00:00,missing_age;nonstandard_gender
+U00896,61, male,Germany,2024-08-21,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00904,29, male,Japan,2025-05-15,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00906,,M,Japan,2024-11-25,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00912,63, male,Brazil,2023-06-29,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00918,,F,UK,2025-02-06,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00924,,M,Japan,2023-05-23,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00926,,M,India,2025-07-15,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00938,142,F,Brazil,2023-05-26,users.csv,2026-11-14T14:28:20+00:00,age_out_of_range
+U00940,27, male,UK,2024-05-12,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00941,24, male,Japan,2024-11-07,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00942,29, male,Germany,2024-01-31,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00956,37,other,USA,2024-08-21,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00964,,M,USA,2023-08-02,users.csv,2026-11-14T14:28:20+00:00,missing_age
+U00972,65,other,Germany,2024-02-14,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00982,49, male,Australia,2024-11-18,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender
+U00989,27,other,Australia,2023-08-30,users.csv,2026-11-14T14:28:20+00:00,nonstandard_gender

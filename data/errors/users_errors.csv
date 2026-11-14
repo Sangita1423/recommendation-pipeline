@@ -1,0 +1,11 @@
+user_id,age,gender,country,signup_date,_source_file,_ingested_at,error_reason
+U00629,36,M,Canada,2024-05-09,users.csv,2026-11-14T14:28:20+00:00,duplicate_user_id
+U00859,44,M,UK,2024-10-17,users.csv,2026-11-14T14:28:20+00:00,duplicate_user_id
+U00757,,M,Brazil,2024-12-23,users.csv,2026-11-14T14:28:20+00:00,duplicate_user_id
+U00986,58,F,India,2024-09-30,users.csv,2026-11-14T14:28:20+00:00,duplicate_user_id
+U00261,30,M,USA,2025-02-15,users.csv,2026-11-14T14:28:20+00:00,duplicate_user_id
+U00377,67,F,UK,2024-12-22,users.csv,2026-11-14T14:28:20+00:00,duplicate_user_id
+U00566,40, male,UK,2023-08-20,users.csv,2026-11-14T14:28:20+00:00,duplicate_user_id
+U00491,30,M,USA,2025-07-02,users.csv,2026-11-14T14:28:20+00:00,duplicate_user_id
+U00716,63,F,Brazil,2025-02-21,users.csv,2026-11-14T14:28:20+00:00,duplicate_user_id
+U00383,34,F,UK,2025-07-16,users.csv,2026-11-14T14:28:20+00:00,duplicate_user_id
