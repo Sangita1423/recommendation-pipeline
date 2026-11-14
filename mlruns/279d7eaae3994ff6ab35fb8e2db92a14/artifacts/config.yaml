@@ -1,0 +1,76 @@
+# ---------------------------------------------------------------
+# Central configuration for the recommendation pipeline.
+# Every stage reads from this file, so a run is fully reproducible
+# from (code version + this config + seed).
+# ---------------------------------------------------------------
+project_name: movie-recommendation-pipeline
+seed: 42
+
+paths:
+  raw: data/raw                 # landing zone (as-received data)
+  validated: data/validated     # records that passed validation
+  errors: data/errors           # quarantined invalid records
+  processed: data/processed     # cleaned data, train/test, derived datasets
+  features: data/features       # feature store (offline tables)
+  models: models                # serialized model artifacts
+  reports: reports              # validation report, results, figures
+  logs: logs
+  mlruns: mlruns                # experiment tracking store
+
+storage:
+  format: csv                   # csv | parquet (parquet needs pyarrow)
+
+ingestion:
+  source: synthetic             # synthetic | movielens
+  movielens_dir: data/external/ml-latest-small   # used only if source = movielens
+
+synthetic:
+  n_users: 1000
+  n_items: 600
+  n_interactions: 60000
+  n_genres: 12
+  start_date: "2023-01-01"
+  end_date: "2026-10-31"
+  dirty_fraction: 0.02          # share of records deliberately corrupted for validation testing
+
+validation:
+  rating_min: 1
+  rating_max: 5
+  min_timestamp: "2015-01-01"
+  max_timestamp: "now"          # "now" = pipeline run time; future timestamps are invalid
+  age_min: 10
+  age_max: 100
+  release_year_min: 1900
+
+split:
+  method: time                  # global time-based split
+  test_fraction: 0.2            # most recent 20% of interactions -> test
+
+evaluation:
+  k: 10
+  relevance_threshold: 4.0      # a test rating >= 4 is a "relevant" item
+
+models:
+  popularity:
+    min_ratings: 5              # items need at least this many ratings to be ranked
+    recency_half_life_days: 180 # time-decayed popularity; null = plain counts
+  item_knn:                     # tuned with src/training/tune.py (validation NDCG@10)
+    n_neighbors: 100
+    shrinkage: 50
+  matrix_factorization:
+    n_factors: 32
+    n_epochs: 30
+    learning_rate: 0.01
+    regularization: 0.05
+  implicit_als:                 # tuned with src/training/tune.py (validation NDCG@10)
+    n_factors: 16
+    n_iterations: 15
+    regularization: 50
+    alpha: 20.0                 # confidence scaling: c_ui = 1 + alpha * rating/5
+  hybrid:
+    w_cf: 0.6                   # weight on z-scored implicit-ALS score
+    w_content: 0.3              # weight on genre-affinity (feature store: ug_affinity)
+    w_pop: 0.1                  # weight on log popularity
+
+tracking:
+  experiment_name: recsys-assignment2
