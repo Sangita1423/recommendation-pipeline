@@ -1,0 +1,87 @@
+{
+  "run_id": "20261114T142213_aa8cc1",
+  "status": "success",
+  "started_at": "2026-11-14T14:22:13",
+  "duration_sec": 26.67,
+  "tasks": {
+    "ingest_data": {
+      "status": "success",
+      "upstream": [],
+      "start": "2026-11-14T14:22:13",
+      "start_offset": 0.0,
+      "attempt": 1,
+      "duration_sec": 1.03
+    },
+    "validate_data": {
+      "status": "success",
+      "upstream": [
+        "ingest_data"
+      ],
+      "start": "2026-11-14T14:22:14",
+      "start_offset": 1.03,
+      "attempt": 1,
+      "duration_sec": 0.52
+    },
+    "prepare_data": {
+      "status": "success",
+      "upstream": [
+        "validate_data"
+      ],
+      "start": "2026-11-14T14:22:15",
+      "start_offset": 1.56,
+      "attempt": 1,
+      "duration_sec": 0.3
+    },
+    "transform_data": {
+      "status": "success",
+      "upstream": [
+        "prepare_data"
+      ],
+      "start": "2026-11-14T14:22:15",
+      "start_offset": 1.86,
+      "attempt": 1,
+      "duration_sec": 0.19
+    },
+    "build_features": {
+      "status": "success",
+      "upstream": [
+        "prepare_data"
+      ],
+      "start": "2026-11-14T14:22:15",
+      "start_offset": 2.05,
+      "attempt": 1,
+      "duration_sec": 0.25
+    },
+    "build_serving_features": {
+      "status": "success",
+      "upstream": [
+        "prepare_data"
+      ],
+      "start": "2026-11-14T14:22:16",
+      "start_offset": 2.3,
+      "attempt": 1,
+      "duration_sec": 0.33
+    },
+    "train_models": {
+      "status": "success",
+      "upstream": [
+        "transform_data",
+        "build_features"
+      ],
+      "start": "2026-11-14T14:22:16",
+      "start_offset": 2.63,
+      "attempt": 1,
+      "duration_sec": 16.94
+    },
+    "evaluate_models": {
+      "status": "success",
+      "upstream": [
+        "train_models"
+      ],
+      "start": "2026-11-14T14:22:33",
+      "start_offset": 19.58,
+      "attempt": 1,
+      "duration_sec": 7.1
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "run_id": "20261114T132711_a72ae0",
+  "status": "success",
+  "started_at": "2026-11-14T13:27:11",
+  "duration_sec": 9.91,
+  "tasks": {
+    "evaluate_models": {
+      "status": "success",
+      "upstream": [
+        "train_models"
+      ],
+      "start": "2026-11-14T13:27:11",
+      "start_offset": 0.0,
+      "attempt": 1,
+      "duration_sec": 9.91
+    }
+  }
+}

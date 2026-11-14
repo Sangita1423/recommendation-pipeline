@@ -1,0 +1,200 @@
+{
+  "run_at": "2026-11-14T19:58:20",
+  "tables": {
+    "users": {
+      "input_rows": 1010,
+      "valid_rows": 1000,
+      "error_rows": 10,
+      "warning_rows": 147,
+      "pass_rate": 0.9901,
+      "rules": [
+        {
+          "rule": "missing_user_id",
+          "severity": "error",
+          "description": "user_id is null/blank",
+          "failed_rows": 0
+        },
+        {
+          "rule": "invalid_user_id_format",
+          "severity": "error",
+          "description": "user_id must match U#####",
+          "failed_rows": 0
+        },
+        {
+          "rule": "duplicate_user_id",
+          "severity": "error",
+          "description": "user_id already seen (duplicate record)",
+          "failed_rows": 10
+        },
+        {
+          "rule": "age_not_numeric",
+          "severity": "warning",
+          "description": "age is not a number",
+          "failed_rows": 3
+        },
+        {
+          "rule": "age_out_of_range",
+          "severity": "warning",
+          "description": "age outside [10, 100]",
+          "failed_rows": 7
+        },
+        {
+          "rule": "missing_age",
+          "severity": "warning",
+          "description": "age is null",
+          "failed_rows": 21
+        },
+        {
+          "rule": "missing_country",
+          "severity": "warning",
+          "description": "country is null",
+          "failed_rows": 20
+        },
+        {
+          "rule": "invalid_signup_date",
+          "severity": "warning",
+          "description": "signup_date not parseable as YYYY-MM-DD",
+          "failed_rows": 5
+        },
+        {
+          "rule": "nonstandard_gender",
+          "severity": "warning",
+          "description": "gender not in {M, F, Other}",
+          "failed_rows": 101
+        }
+      ]
+    },
+    "items": {
+      "input_rows": 606,
+      "valid_rows": 600,
+      "error_rows": 6,
+      "warning_rows": 47,
+      "pass_rate": 0.9901,
+      "rules": [
+        {
+          "rule": "missing_item_id",
+          "severity": "error",
+          "description": "item_id is null/blank",
+          "failed_rows": 0
+        },
+        {
+          "rule": "invalid_item_id_format",
+          "severity": "error",
+          "description": "item_id must match I#####",
+          "failed_rows": 0
+        },
+        {
+          "rule": "duplicate_item_id",
+          "severity": "error",
+          "description": "item_id already seen (duplicate record)",
+          "failed_rows": 6
+        },
+        {
+          "rule": "missing_title",
+          "severity": "error",
+          "description": "title is null",
+          "failed_rows": 0
+        },
+        {
+          "rule": "missing_genres",
+          "severity": "warning",
+          "description": "genres is null",
+          "failed_rows": 12
+        },
+        {
+          "rule": "release_year_out_of_range",
+          "severity": "warning",
+          "description": "release_year outside [1900, current year]",
+          "failed_rows": 6
+        },
+        {
+          "rule": "nonstandard_genre_case",
+          "severity": "warning",
+          "description": "genres not Title-Case",
+          "failed_rows": 29
+        }
+      ]
+    },
+    "interactions": {
+      "input_rows": 59891,
+      "valid_rows": 56681,
+      "error_rows": 3210,
+      "warning_rows": 0,
+      "pass_rate": 0.9464,
+      "rules": [
+        {
+          "rule": "missing_user_id",
+          "severity": "error",
+          "description": "user_id is null",
+          "failed_rows": 148
+        },
+        {
+          "rule": "missing_item_id",
+          "severity": "error",
+          "description": "item_id is null",
+          "failed_rows": 0
+        },
+        {
+          "rule": "missing_rating",
+          "severity": "error",
+          "description": "rating is null",
+          "failed_rows": 305
+        },
+        {
+          "rule": "missing_timestamp",
+          "severity": "error",
+          "description": "timestamp is null",
+          "failed_rows": 75
+        },
+        {
+          "rule": "rating_wrong_type",
+          "severity": "error",
+          "description": "rating is not numeric",
+          "failed_rows": 293
+        },
+        {
+          "rule": "rating_out_of_range",
+          "severity": "error",
+          "description": "rating outside [1, 5]",
+          "failed_rows": 595
+        },
+        {
+          "rule": "timestamp_unparseable",
+          "severity": "error",
+          "description": "timestamp not in format %Y-%m-%d %H:%M:%S",
+          "failed_rows": 219
+        },
+        {
+          "rule": "timestamp_in_future",
+          "severity": "error",
+          "description": "timestamp later than pipeline run time",
+          "failed_rows": 302
+        },
+        {
+          "rule": "timestamp_too_old",
+          "severity": "error",
+          "description": "timestamp earlier than 2015-01-01",
+          "failed_rows": 149
+        },
+        {
+          "rule": "orphan_user_id",
+          "severity": "error",
+          "description": "user_id not present in validated users (referential integrity)",
+          "failed_rows": 298
+        },
+        {
+          "rule": "orphan_item_id",
+          "severity": "error",
+          "description": "item_id not present in validated items (referential integrity)",
+          "failed_rows": 296
+        },
+        {
+          "rule": "exact_duplicate",
+          "severity": "error",
+          "description": "row is an exact duplicate of an earlier row",
+          "failed_rows": 587
+        }
+      ]
+    }
+  }
+}

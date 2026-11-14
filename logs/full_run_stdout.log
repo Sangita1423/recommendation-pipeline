@@ -1,0 +1,43 @@
+2026-11-14 13:28:30,538 | INFO    | orchestrator | === Pipeline run 20261114T132830_5aa10e | 8 tasks: ingest_data -> validate_data -> prepare_data -> transform_data -> build_features -> build_serving_features -> train_models -> evaluate_models
+2026-11-14 13:28:30,538 | INFO    | orchestrator | >>> ingest_data (attempt 1)
+2026-11-14 13:28:31,232 | INFO    | ingestion.synthetic | Clean synthetic data: 1000 users, 600 items, 58715 interactions
+2026-11-14 13:28:31,271 | INFO    | ingestion.synthetic | Wrote users (1010 rows) -> /home/claude/final/recommendation-pipeline/data/raw/source/users.csv
+2026-11-14 13:28:31,273 | INFO    | ingestion.synthetic | Wrote items (606 rows) -> /home/claude/final/recommendation-pipeline/data/raw/source/items.csv
+2026-11-14 13:28:31,373 | INFO    | ingestion.synthetic | Wrote interactions (59891 rows) -> /home/claude/final/recommendation-pipeline/data/raw/source/interactions.csv
+2026-11-14 13:28:31,386 | INFO    | ingestion | Ingested users        rows=1010
+2026-11-14 13:28:31,392 | INFO    | ingestion | Ingested items        rows=606
+2026-11-14 13:28:31,634 | INFO    | ingestion | Ingested interactions rows=59891
+2026-11-14 13:28:31,637 | INFO    | orchestrator | <<< ingest_data succeeded in 1.1s
+2026-11-14 13:28:31,638 | INFO    | orchestrator | >>> validate_data (attempt 1)
+2026-11-14 13:28:31,666 | INFO    | validation | users        input=1010 valid=1000 errors=10 warnings=147
+2026-11-14 13:28:31,684 | INFO    | validation | items        input=606 valid=600 errors=6 warnings=47
+2026-11-14 13:28:32,286 | INFO    | validation | interactions input=59891 valid=56681 errors=3210 warnings=0
+2026-11-14 13:28:32,290 | INFO    | orchestrator | <<< validate_data succeeded in 0.7s
+2026-11-14 13:28:32,290 | INFO    | orchestrator | >>> prepare_data (attempt 1)
+2026-11-14 13:28:32,433 | INFO    | preparation | Removed 567 repeat user-item ratings (kept latest)
+2026-11-14 13:28:32,665 | INFO    | preparation | Time split at 2026-05-21 09:03:49.200000 -> train=44891 test=11223
+2026-11-14 13:28:32,666 | INFO    | orchestrator | <<< prepare_data succeeded in 0.4s
+2026-11-14 13:28:32,666 | INFO    | orchestrator | >>> transform_data (attempt 1)
+2026-11-14 13:28:32,818 | INFO    | transformation | Interaction matrix (1000, 600), nnz=44891, density=0.0748
+2026-11-14 13:28:32,819 | INFO    | orchestrator | <<< transform_data succeeded in 0.2s
+2026-11-14 13:28:32,819 | INFO    | orchestrator | >>> build_features (attempt 1)
+2026-11-14 13:28:33,046 | INFO    | features | Features (train, as_of=2026-05-21 09:03:49.200000): {'user_features': 1000, 'item_features': 600, 'user_genre_features': 11261}
+2026-11-14 13:28:33,047 | INFO    | orchestrator | <<< build_features succeeded in 0.2s
+2026-11-14 13:28:33,047 | INFO    | orchestrator | >>> build_serving_features (attempt 1)
+2026-11-14 13:28:33,305 | INFO    | features | Features (serve, as_of=2026-11-02 20:50:26): {'user_features': 1000, 'item_features': 600, 'user_genre_features': 11648}
+2026-11-14 13:28:33,306 | INFO    | orchestrator | <<< build_serving_features succeeded in 0.3s
+2026-11-14 13:28:33,306 | INFO    | orchestrator | >>> train_models (attempt 1)
+2026-11-14 13:28:33,395 | INFO    | training | Trained popularity             in 0.0s (run 19482896d852)
+2026-11-14 13:28:34,770 | INFO    | training | Trained item_knn_cf            in 0.0s (run 4c24bd0f39b5)
+2026-11-14 13:28:49,771 | INFO    | training | Trained matrix_factorization   in 15.0s (run 6b2739a47743)
+2026-11-14 13:28:50,325 | INFO    | training | Trained implicit_als           in 0.5s (run 3c117314d10a)
+2026-11-14 13:28:50,371 | INFO    | training | Trained hybrid_als_content     in 0.0s (run e82d4ced13d6)
+2026-11-14 13:28:50,373 | INFO    | orchestrator | <<< train_models succeeded in 17.1s
+2026-11-14 13:28:50,373 | INFO    | orchestrator | >>> evaluate_models (attempt 1)
+2026-11-14 13:28:58,593 | INFO    | evaluation | popularity             P@10=0.0730 R@10=0.1635 NDCG@10=0.1403 cov=0.087 div=0.899 rmse=0.802
+2026-11-14 13:28:59,186 | INFO    | evaluation | item_knn_cf            P@10=0.0732 R@10=0.1608 NDCG@10=0.1401 cov=0.113 div=0.896 rmse=0.828
+2026-11-14 13:28:59,253 | INFO    | evaluation | matrix_factorization   P@10=0.0237 R@10=0.0497 NDCG@10=0.0366 cov=0.122 div=0.863 rmse=0.693
+2026-11-14 13:28:59,319 | INFO    | evaluation | implicit_als           P@10=0.0995 R@10=0.2287 NDCG@10=0.1955 cov=0.505 div=0.845 rmse=0.896
+2026-11-14 13:28:59,396 | INFO    | evaluation | hybrid_als_content     P@10=0.1222 R@10=0.2778 NDCG@10=0.2390 cov=0.597 div=0.649 rmse=0.693
+2026-11-14 13:28:59,831 | INFO    | orchestrator | <<< evaluate_models succeeded in 9.5s
+2026-11-14 13:29:00,009 | INFO    | orchestrator | === Pipeline 20261114T132830_5aa10e finished: SUCCESS in 29.3s

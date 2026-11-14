@@ -1,0 +1,44 @@
+{
+  "source": "synthetic",
+  "ingested_at": "2026-11-14T14:28:20+00:00",
+  "tables": {
+    "users": {
+      "rows": 1010,
+      "columns": [
+        "user_id",
+        "age",
+        "gender",
+        "country",
+        "signup_date",
+        "_source_file",
+        "_ingested_at"
+      ],
+      "md5": "ba3fae18d20ce27c93f965f0f8175e20"
+    },
+    "items": {
+      "rows": 606,
+      "columns": [
+        "item_id",
+        "title",
+        "genres",
+        "release_year",
+        "duration_min",
+        "_source_file",
+        "_ingested_at"
+      ],
+      "md5": "5d15aaf1252b979f78ba2f786509a923"
+    },
+    "interactions": {
+      "rows": 59891,
+      "columns": [
+        "user_id",
+        "item_id",
+        "rating",
+        "timestamp",
+        "_source_file",
+        "_ingested_at"
+      ],
+      "md5": "a2996d5ba72c069fc728ea2a8e46d010"
+    }
+  }
+}

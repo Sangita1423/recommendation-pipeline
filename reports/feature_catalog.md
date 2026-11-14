@@ -1,0 +1,32 @@
+# Feature Catalog
+
+Feature version: `v1`. Definitions live in `src/features/registry.py`; computation in `src/features/build_features.py`. Statistics below are from the training snapshot (as_of = split cutoff).
+
+| # | Feature | Entity | Type | Description | Computation | Source | Null % | Training stats |
+|---:|---|---|---|---|---|---|---:|---|
+| 1 | `user_rating_count` | user | int | Number of ratings the user has given | `count(rating) by user_id` | interactions | 0.0 | mean=44.89, min=2.00, max=256.00 |
+| 2 | `user_avg_rating` | user | float | User's mean rating (rating generosity) | `mean(rating) by user_id` | interactions | 0.0 | mean=3.17, min=1.96, max=4.44 |
+| 3 | `user_rating_std` | user | float | Spread of the user's ratings | `std(rating) by user_id, 0 if single rating` | interactions | 0.0 | mean=0.81, min=0.00, max=1.52 |
+| 4 | `user_ratings_last_30d` | user | int | Ratings in the 30 days before as_of | `count(rating) where timestamp > as_of - 30d` | interactions | 0.0 | mean=2.12, min=0.00, max=23.00 |
+| 5 | `user_days_since_last_interaction` | user | int | Recency of the user's activity | `as_of - max(timestamp), in days` | interactions | 0.0 | mean=31.36, min=0.00, max=471.00 |
+| 6 | `user_active_span_days` | user | int | Days between first and last interaction | `max(timestamp) - min(timestamp) + 1` | interactions | 0.0 | mean=679.98, min=110.00, max=1227.00 |
+| 7 | `user_preferred_genre` | user | category | Genre the user rates most often | `argmax(count) over exploded item genres` | interactions + items | 0.0 | 12 distinct, top='Comedy' |
+| 8 | `user_genre_diversity` | user | float | Distinct genres rated / total genres (breadth of taste) | `nunique(genre) / n_genres` | interactions + items | 0.0 | mean=0.87, min=0.15, max=1.00 |
+| 9 | `user_mainstreamness` | user | float | Mean popularity percentile of items the user rated | `mean(item_popularity_percentile) over user's items` | interactions | 0.0 | mean=0.70, min=0.35, max=0.99 |
+| 10 | `user_age` | user | int | Age (median-imputed when missing/invalid) | `users.age` | users | 0.0 | mean=42.29, min=16.00, max=69.00 |
+| 11 | `user_gender` | user | category | Standardised gender (M/F/Other/Unknown) | `users.gender` | users | 0.0 | 3 distinct, top='M' |
+| 12 | `user_tenure_days` | user | int | Days since sign-up | `as_of - signup_date` | users | 0.5 | mean=744.36, min=258.00, max=1232.00 |
+| 13 | `item_rating_count` | item | int | Number of ratings (raw popularity) | `count(rating) by item_id` | interactions | 0.0 | mean=74.82, min=22.00, max=586.00 |
+| 14 | `item_unique_users` | item | int | Distinct users who rated the item | `nunique(user_id) by item_id` | interactions | 0.0 | mean=74.82, min=22.00, max=586.00 |
+| 15 | `item_avg_rating` | item | float | Mean rating of the item | `mean(rating) by item_id` | interactions | 0.0 | mean=3.16, min=1.70, max=4.42 |
+| 16 | `item_bayesian_avg_rating` | item | float | Mean rating shrunk to global mean (robust for few ratings) | `(C*m + sum(r)) / (C + n), C = median item count, m = global mean` | interactions | 0.0 | mean=3.15, min=2.06, max=3.83 |
+| 17 | `item_popularity_percentile` | item | float | Popularity percentile (1 = most popular) | `rank_pct(item_rating_count)` | interactions | 0.0 | mean=0.50, min=0.00, max=1.00 |
+| 18 | `item_ratings_last_30d` | item | int | Ratings in the 30 days before as_of (trending) | `count(rating) where timestamp > as_of - 30d` | interactions | 0.0 | mean=3.52, min=0.00, max=26.00 |
+| 19 | `item_days_since_last_interaction` | item | int | Recency of item activity | `as_of - max(timestamp), in days` | interactions | 0.0 | mean=10.45, min=0.00, max=86.00 |
+| 20 | `item_primary_genre` | item | category | First listed genre | `items.genres.split('|')[0]` | items | 0.0 | 13 distinct, top='Action' |
+| 21 | `item_genre_count` | item | int | Number of genres tagged | `len(genres)` | items | 0.0 | mean=1.77, min=1.00, max=3.00 |
+| 22 | `item_age_years` | item | int | Years since release | `year(as_of) - release_year` | items | 0.0 | mean=28.68, min=1.00, max=56.00 |
+| 23 | `item_duration_min` | item | int | Runtime in minutes | `items.duration_min` | items | 0.0 | mean=129.53, min=80.00, max=179.00 |
+| 24 | `ug_share` | user_genre | float | Share of the user's ratings that fall in the genre | `count(user, genre) / count(user)` | interactions + items | 0.0 | mean=0.15, min=0.00, max=1.00 |
+| 25 | `ug_avg_rating` | user_genre | float | User's mean rating within the genre | `mean(rating) by (user_id, genre)` | interactions + items | 0.0 | mean=3.06, min=1.00, max=5.00 |
+| 26 | `ug_affinity` | user_genre | float | Combined preference score used by the hybrid model | `ug_share * (ug_avg_rating - user_avg_rating + 1)` | interactions + items | 0.0 | mean=0.14, min=0.00, max=1.24 |

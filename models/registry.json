@@ -1,0 +1,59 @@
+{
+  "tracker": "mlflow (sqlite:///mlflow.db)",
+  "models": {
+    "popularity": {
+      "run_id": "b03402f82d984fb48226445df8b54241",
+      "artifact": "models\\popularity.pkl",
+      "params": {
+        "min_ratings": 5,
+        "recency_half_life_days": 180
+      },
+      "train_time_sec": 0.06
+    },
+    "item_knn_cf": {
+      "run_id": "279d7eaae3994ff6ab35fb8e2db92a14",
+      "artifact": "models\\item_knn_cf.pkl",
+      "params": {
+        "n_neighbors": 100,
+        "shrinkage": 50
+      },
+      "train_time_sec": 0.09
+    },
+    "matrix_factorization": {
+      "run_id": "1f13624a6af14bc8871337f4d6b2cb6c",
+      "artifact": "models\\matrix_factorization.pkl",
+      "params": {
+        "n_factors": 32,
+        "n_epochs": 30,
+        "learning_rate": 0.01,
+        "regularization": 0.05
+      },
+      "train_time_sec": 38.6
+    },
+    "implicit_als": {
+      "run_id": "e9387c5600004dcf93df9fd746cc86b7",
+      "artifact": "models\\implicit_als.pkl",
+      "params": {
+        "n_factors": 16,
+        "n_iterations": 15,
+        "regularization": 50,
+        "alpha": 20.0
+      },
+      "train_time_sec": 1.26
+    },
+    "hybrid_als_content": {
+      "run_id": "8ff6d3b5a75646578902f6fef1768e67",
+      "artifact": "models\\hybrid_als_content.pkl",
+      "params": {
+        "w_cf": 0.6,
+        "w_content": 0.3,
+        "w_pop": 0.1,
+        "cf_n_factors": 16,
+        "cf_n_iterations": 15,
+        "cf_regularization": 50,
+        "cf_alpha": 20.0
+      },
+      "train_time_sec": 0.04
+    }
+  }
+}
